@@ -1,1 +1,1 @@
- urllib2
+requests==2.7.0
