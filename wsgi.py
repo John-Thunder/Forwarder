@@ -24,6 +24,9 @@ application = app = bottle.Bottle()
 def Home():
     resp = bottle.response
     qry = bottle.request.query
+    k, timeout = qry.k, int(qry.get('t', '30'))
+    indexofu=bottle.request.url.index('u=')
+    url=bottle.request.url[indexofu+2:]
     url, k, timeout = qry.u, qry.k, int(qry.get('t', '30'))
     if k and k != ALLOW_KEYS:
         return 'Auth Key is invalid!'
